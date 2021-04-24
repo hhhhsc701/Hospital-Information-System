@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'Hospital_Information_System.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'root',
+        'NAME': 'HIS',
         'USER': 'HIS_admin',
         'PASSWORD': 'buaa1808',
         'HOST': '127.0.0.1',
