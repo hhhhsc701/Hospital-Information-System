@@ -191,6 +191,22 @@ class DoctorOperation(models.Model):
         unique_together = ('doctor_id', 'operation_id')
 
 
+class Charge(models.Model):
+    id = models.CharField(max_length=11, verbose_name='收费单编号', primary_key=True)
+    project_id = models.ForeignKey(Project, on_delete=models.DO_NOTHING, verbose_name='项目编号')
+    patient_id = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, verbose_name='病人编号')
+    number = models.IntegerField(verbose_name='项目次数')
+    time = models.DateTimeField(auto_now=True, verbose_name='收费日期')
+    status = models.SmallIntegerField(choices=Payment, default=0, verbose_name='缴费状态')
+
+    class Meta:
+        db_table = 'charge'
+        verbose_name = '收费单'
+
+    def __str__(self):
+        return self.id
+
+
 class Inspection(models.Model):
     id = models.CharField(max_length=11, verbose_name='检验单编号', primary_key=True)
     prescription_id = models.ForeignKey(Prescription, on_delete=models.DO_NOTHING, verbose_name='处方单编号')
@@ -208,24 +224,8 @@ class Inspection(models.Model):
         return self.name
 
 
-class Charge(models.Model):
-    id = models.CharField(max_length=11, verbose_name='收费单编号', primary_key=True)
-    project_id = models.ForeignKey(Project, on_delete=models.DO_NOTHING, verbose_name='项目编号')
-    patient_id = models.ForeignKey(Patient, on_delete=models.DO_NOTHING, verbose_name='病人编号')
-    number = models.IntegerField(verbose_name='项目次数')
-    time = models.DateTimeField(auto_now=True, verbose_name='收费日期')
-    status = models.SmallIntegerField(choices=Payment, default=0, verbose_name='缴费状态')
-
-    class Meta:
-        db_table = 'charge'
-        verbose_name = '收费单'
-
-    def __str__(self):
-        return self.id
-
-
 class Medicine(models.Model):
-    id = models.CharField(max_length=11, verbose_name='收费单编号', primary_key=True)
+    id = models.CharField(max_length=11, verbose_name='取药单编号', primary_key=True)
     prescription_id = models.ForeignKey(Prescription, on_delete=models.DO_NOTHING, verbose_name='处方单编号')
     project_id = models.ForeignKey(Project, on_delete=models.DO_NOTHING, verbose_name='项目编号')
     name = models.CharField(max_length=20, verbose_name='药物名称')
@@ -257,7 +257,7 @@ class Replenishment(models.Model):
     id = models.CharField(max_length=11, verbose_name='补货单编号', primary_key=True)
     inventory_id = models.ForeignKey(Inventory, on_delete=models.DO_NOTHING, verbose_name='物品编号')
     number = models.IntegerField(verbose_name='补货数目')
-    time = models.DateTimeField(auto_now=True, verbose_name='补货日期')
+    time = models.DateTimeField(auto_now_add=True, verbose_name='补货时间')
 
     class Meta:
         db_table = 'replenishment'
