@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>test</title>
+  <link rel="stylesheet" type="text/css" href="{% static 'bootstrap.css' %}" />
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700|Poppins:400,600,700&display=swap" rel="stylesheet" />
+  <!-- nice select -->
+  <link rel="stylesheet" href="{% static 'nice-select.min.css' %}" integrity="sha256-mLBIhmBvigTFWPSCtvdu6a76T+3Xyt+K571hupeFLg4=" crossorigin="anonymous" />
+  <!-- datepicker -->
+  <link rel="stylesheet" href="{% static 'datepicker.css' %}" />
+  <!-- Custom styles for this template -->
+  <link href="{% static 'style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'responsive.css' %}" rel="stylesheet" />
+</head>
+<body>
+<header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="../">
+            <p>
+            <img src="static/sign.png" alt="noob-logo" width="40" height="40">
+            </p>
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <div class="container">
+                <p>Hospital  Information  System</p>
+              </div>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+{% block content %}
+
+{% endblock %}
+<section class="info_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>
+              欢迎关注我们的公众号
+          </h5>
+          <p>
+            <img src="static/qr.png" alt="noob-logo" width="197" height="197">
+          </p>
+        </div>
+        <div class="col-md-3">
+          <div class="info_course">
+            <h5>
+              我们的宗旨
+            </h5>
+            <p>
+              以人为本，兴院为民;
+              一切以病人为中心;
+              救死扶伤,奉献社会;
+              生命高于一切，患者重于一切，精心救死扶伤，提高生命质量，为患者奉送健康，为社会奉献爱心。
+            </p>
+          </div>
+        </div>
+
+        <div class="col-md-5 offset-md-1">
+          <div class="info_news">
+            <h5>
+              如有问题请联系我们
+            </h5>
+            <div class="info_contact">
+              <a href="https://map.baidu.com/poi/%E5%8C%97%E4%BA%AC%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%B8%89%E5%8C%BB%E9%99%A2/@12954044.98567554,4840002.608265822,12.16z?uid=550fd5f96e079260921fc9f3&ugc_type=3&ugc_ver=1&device_ratio=2&compat=1&querytype=detailConInfo&da_src=shareurl">
+                位置：北京市海淀区花园北路49号
+              </a>
+              <a>
+                邮箱 : 123456@gmail.com
+              </a>
+              <a>
+                电话 : +01 1234567890
+              </a>
+            </div>
+            <form action="">
+              <input type="text" placeholder="Enter Your email" />
+              <button>
+                Subscribe
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<footer class="container-fluid footer_section">
+    <div class="container">
+      <p>Copyright &copy; 2020.HIS All rights reserved.</p>
+    </div>
+</footer>
+</body>
+</html>

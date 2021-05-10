@@ -1,0 +1,81 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="hero_area" style="margin-bottom:-20px">
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="../">
+            <p>
+            <img src="static/sign.png" alt="noob-logo" width="40" height="40">
+            </p>
+          </a>
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../home/"> 我的主页 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../information/">病患信息 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../line/"> 挂号预约 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 普通治疗 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../hospitalization/"> 住院治疗 </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="../finance/"> 财务管理 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 仓库管理 </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+<section class="book_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form>
+            <h4>
+              <span class="design_dot"></span>
+              我是财务
+            </h4>
+            <div class="form-row ">
+              <div class="form-group col-lg-4">
+                <label>病人帐号 </label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>查询日期</label>
+                <select class="form-control wide">
+                  <option>全部信息 </option>
+                  <option>2021 </option>
+                  <option>2020 </option>
+                </select>
+              </div>
+            </div>
+            <div class="btn-box">
+              <button class="btn ">立即查询</button>
+            </div>
+          </form>
+          <form style="margin-top:100px;">
+              <h4>
+              <span class="design_dot"></span>
+              我是病人
+              </h4>
+              <div>
+                  <button onclick="window.location.href=''" type="button" class="btn ">查询账单/付费</button>
+              </div>
+          </form>>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

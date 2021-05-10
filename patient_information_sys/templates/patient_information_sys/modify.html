@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改个人信息</title>
+</head>
+<body>
+
+{% if request.session.user_attr == 0 %}
+<div>
+    <h1>不可修改信息</h1>
+    病人编号：{{ patient.id }}<br>
+    住院状态：{{ patient.status }}<br>
+</div>
+<div>
+    <h1>可修改信息</h1>
+    <form method="post" action="/patient_information_sys/modify/">
+        {% csrf_token %}
+        姓名：<input type="text" name="name" value={{ patient.name }}><br>
+        {% if patient.gender == 0 %}
+        性别：<input type="radio" name="gender" value=0 checked="checked">男 <input type="radio" name="gender" value=1>女<br>
+        {% elif patient.gender == 1 %}
+        性别：<input type="radio" name="gender" value=0>男 <input type="radio" name="gender" value=1 checked="checked">女<br>
+        {% else %}
+        性别：<input type="radio" name="gender" value=0>男 <input type="radio" name="gender" value=1>女<br>
+        {% endif %}
+        年龄：<input type="text" name="age" value={{ patient.age }}><br>
+        身份证号：<input type="text" name="id_number" value={{ patient.id_number }}><br>
+        联系方式：<input type="text" name="phone" value={{ patient.phone }}><br>
+        紧急联系人：<input type="text" name="emergency_contact" value={{ patient.emergency_contact }}><br>
+        家庭住址：<input type="text" name="address" value={{ patient.address }}><br>
+        <input type="submit" value="提交修改">
+    </form>
+<p>{{ message }}</p>
+</div>
+<a href="/patient_information_sys/index/">返回上一页</a>
+
+{% elif request.session.user_attr == 1 %}
+    <h1>没有权限访问！</h1>
+    <p><a href="/patient_information_sys/index/">返回前页</a></p>
+{% endif %}
+
+</body>
+</html>

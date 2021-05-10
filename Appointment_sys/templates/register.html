@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="book_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form style="margin-top:70px;margin-bottom:70px">
+            <h4>
+              <span class="design_dot"></span>
+              请输入您的注册信息
+            </h4>
+            <div class="form-row ">
+              <div class="form-group col-lg-4">
+                <label>姓名：</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>性别：</label>
+                <select class="form-control wide">
+                  <option>男</option>
+                  <option>女</option>
+                </select>
+              </div>
+              <div class="form-group col-lg-4">
+                <label>身份证号：</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>联系方式：</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>紧急联系人联系方式：</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>家庭住址：</label>
+                <input type="text" class="form-control">
+              </div>
+            </div>
+              <div align="left" style="float:left;margin-left:200px">
+                  <button onclick="window.location.href=''" type="button" class="btn ">注册</button>
+              </div>
+              <div align="right" style="margin-right:200px">
+                  <button onclick="window.location.href='../enroll/'" type="button" class="btn ">前往登录</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

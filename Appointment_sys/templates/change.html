@@ -1,0 +1,90 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="hero_area" style="margin-bottom:-90px">
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand" href="../">
+            <p>
+            <img src="static/sign.png" alt="noob-logo" width="40" height="40">
+            </p>
+          </a>
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="../../home/"> 我的主页 </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="../">病患信息 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../line/"> 挂号预约 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 普通治疗 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../hospitalization/"> 住院治疗 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../../finance/"> 财务管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 仓库管理 </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section class="book_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form style="margin-top:70px;margin-bottom:70px">
+            <h4>
+              <span class="design_dot"></span>
+              请修改您的注册信息
+            </h4>
+              <div class="form-row ">
+                  <div class="form-group col-lg-4">
+                <label>姓名：</label>
+                <input type="text" class="form-control" value="韩拯寰">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>性别：</label>
+                <select class="form-control wide">
+                  <option>男</option>
+                  <option>女</option>
+                </select>
+              </div>
+              <div class="form-group col-lg-4">
+                <label>身份证号：（不可修改）</label>
+                <input type="text" class="form-control" readonly="readonly" value="620102200007178976">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>联系方式：</label>
+                <input type="text" class="form-control" value="18813151905">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>紧急联系人联系方式：</label>
+                <input type="text" class="form-control" value="18813151905">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>家庭住址：</label>
+                <input type="text" class="form-control" value="海淀区学院路37号">
+              </div>
+              </div>
+              <div align="left" style="float:left;margin-left:200px">
+                  <button onclick="window.location.href='../'" type="button" class="btn ">返回</button>
+              </div>
+              <div align="right" style="margin-right:200px">
+                  <button onclick="window.location.href=''" type="button" class="btn ">提交</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}

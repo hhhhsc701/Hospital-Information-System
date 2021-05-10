@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+<section class="book_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form style="margin-top:70px;margin-bottom:70px;">
+            <h4>
+              <span class="design_dot"></span>
+              请输入您的帐号和密码
+            </h4>
+              <div class="form-group col-lg-4">
+                <label>帐号：</label>
+                <input type="text" class="form-control" style="width:800px;">
+              </div>
+              <div class="form-group col-lg-4">
+                <label>密码：</label>
+                <input type="text" class="form-control" style="width:800px;">
+              </div>
+              <div align="right">
+                  <button onclick="window.location.href='../home/'" type="button" class="btn ">登录</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

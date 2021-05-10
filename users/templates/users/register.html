@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> 注册页面 </title>
+</head>
+<body>
+
+<form method="post" action="/users/register/">
+    {% csrf_token %}
+    用户名:<input type="text" name="username"><br>
+    <span>{{ username_error }}</span><br>
+    密码:<input type="password" name="password1"><br><br>
+    请再次输入密码:<input type="password" name="password2"><br>
+    <span>{{ password_error }}</span><br>
+    <select name="attr">
+    <option value="0" selected>病人</option>
+    <option value="1">医生</option>
+    <option value="2">护士</option>
+    <option value="3">财务人员</option>
+    <option value="4">药房人员</option>
+    </select><br><br>
+    <input type="submit" value="提交">
+</form>
+<a href="/users/login/">已有账号，前往登录</a>
+
+</body>
+</html>

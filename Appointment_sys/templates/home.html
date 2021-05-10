@@ -1,0 +1,71 @@
+{% extends "base2.html" %}
+{% block content %}
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+          <a class="navbar-brand" href="../">
+            <p>
+            <img src="static/sign.png" alt="noob-logo" width="40" height="40">
+            </p>
+          </a>
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="../home/"> 我的主页 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../information/">病患信息 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../line/"> 挂号预约 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 普通治疗 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../hospitalization/"> 住院治疗 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../finance/"> 财务管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 仓库管理 </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <!-- end header section -->
+    <!-- slider section -->
+    <section class=" slider_section position-relative">
+       <div class="container">
+              <div class="row">
+                <div class="col-md-6">
+                  <div class="detail-box">
+                    <div>
+                      <h1>
+                        关于我们
+                      </h1>
+                      <p>
+                        北京大学第三医院（简称“北医三院”）建于1958年，国家卫生健康委委管医院，集医疗、教学、科研、预防保健、康复与健康管理为一体的综合性三甲医院。目前，在岗职工6226人。截至2020年9月，医院平均开放床位数2264张。医院设有37个临床科室，10个医技科室。有34个博士点、1个临床博士后流动站。在岗博士生导师70人，中国科学院院士1人、中国工程院院士2人，科技部创新领军人才青年领军1人，国家自然科学基金杰出青年基金获得者5人、科技部“973”首席科学家1人、3人入选国家级“新世纪百千万人才工程”，国家自然科学基金优秀青年科学基金获得者5人，卫生部突出贡献专家10人。
+                      </p>
+                      <a href="">
+                        Read More
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-6">
+                  <div class="img-box">
+                    <img src="images/slider-img.png" alt="">
+                  </div>
+                </div>
+              </div>
+            </div>
+    </section>
+    <!-- end slider section -->
+  </div>
+{% endblock %}
