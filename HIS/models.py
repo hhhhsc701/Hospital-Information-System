@@ -11,7 +11,7 @@ Department = ((0, '普通内科'), (1, '普通外科'), (2, '骨科'), (3, '儿�
 
 
 class User(models.Model):
-    id = models.CharField(max_length=11, verbose_name='用户编号', primary_key=True)
+    id = models.AutoField(max_length=11, verbose_name='用户编号', primary_key=True)
     username = models.CharField(max_length=20, verbose_name='用户名', unique=True)
     password = models.CharField(max_length=20, verbose_name='密码')
     attr = models.SmallIntegerField(choices=Attribute, default=0, verbose_name='人员属性')
@@ -62,8 +62,8 @@ class Patient(models.Model):
     id = models.CharField(max_length=11, verbose_name='病人编号', primary_key=True)
     name = models.CharField(max_length=20, verbose_name='姓名')
     gender = models.SmallIntegerField(choices=Gender_choices, default=0, verbose_name='性别')
-    age = models.IntegerField(verbose_name='年龄')
-    id_number = models.CharField(max_length=11, verbose_name='身份证号')
+    age = models.CharField(max_length=11, verbose_name='年龄')
+    id_number = models.CharField(max_length=19, verbose_name='身份证号')
     phone = models.CharField(max_length=11, verbose_name='联系方式')
     emergency_contact = models.CharField(max_length=11, verbose_name='紧急联系人')
     address = models.CharField(max_length=256, verbose_name='家庭住址')
