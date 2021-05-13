@@ -1,4 +1,4 @@
-#!D:\Python\Hospital_Information_System\venv\Scripts\python.exe
+#!X:\ProgramData\Hospital_Information_System\venv\Scripts\python.exe
 # When the django-admin.py deprecation ends, remove this script.
 import warnings
 

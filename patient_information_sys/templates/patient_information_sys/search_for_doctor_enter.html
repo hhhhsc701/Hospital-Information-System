@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>查询患者信息</title>
+</head>
+<body>
+<form method="post" action="/patient_information_sys/search_for_doctor_enter/">
+    {% csrf_token %}
+    <p> 请输入患者账号 </p><br>
+    账号：<input type="text" name="id"><br>
+    <input type="submit" value="查询">
+</form>
+<p>{{ message }}</p>
+</body>
+</html>
