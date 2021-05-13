@@ -1,22 +1,28 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>用户首页</title>
-</head>
-<body>
-
-<ul>
-    {% if request.session.is_login %}
-    <li><a href="/patient_information_sys/index/">病患信息系统</a></li>
-    <li><a href="">预约挂号系统</a></li>
-    <li><a href="#">当前在线用户：{{ request.session.user_name }}</a></li>
-    <li><a href="/users/logout/">登出</a></li>
-    {% else %}
-    <li><a href="/users/login/">登录</a></li>
-    <li><a href="/users/register/">注册</a></li>
-    {% endif %}
-</ul>
-
-</body>
-</html>
+{% extends "users/base.html" %}
+{% block content %}
+<section class="book_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form style="margin-top:100px;margin-bottom:100px">
+            <h4>
+              <span class="design_dot"></span>
+              选择“登录”或“注册”以进入系统
+            </h4>
+              <div>
+                  <label>1.本院职工请选择直接登录，若您没有系统帐号，请通过科室上报申请。</label>
+                  <label>2.初次使用系统的患者请选择注册，请记住系统提供的帐号，以后使用通过该账号登录，谢谢您的合作。</label>
+                  <label>3.本系统旨在为患者朋友和本院职工提供事务处理平台，解释权归医院所有。</label>
+              </div>
+              <div align="left" style="float:left;margin-left:200px">
+                  <button onclick="window.location.href='/users/register/'" type="button" class="btn ">注册</button>
+              </div>
+              <div align="right" style="margin-right:200px">
+                  <button onclick="window.location.href='/users/login/'" type="button" class="btn ">登录</button>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

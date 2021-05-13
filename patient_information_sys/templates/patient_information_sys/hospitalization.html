@@ -1,12 +1,13 @@
-{% extends "base2.html" %}
+{% extends "patient_information_sys/base2.html" %}
+{% load static %}
 {% block content %}
-<div class="hero_area" style="margin-bottom:-20px">
+<div class="hero_area">
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-            <a class="navbar-brand" href="../">
+            <a class="navbar-brand">
             <p>
-            <img src="static/sign.png" alt="noob-logo" width="40" height="40">
+            <img src="{% static 'images/sign.png' %}" alt="noob-logo" width="40" height="40">
             </p>
           </a>
           <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
@@ -14,8 +15,8 @@
               <li class="nav-item">
                 <a class="nav-link" href="../home/"> 我的主页 </a>
               </li>
-              <li class="nav-item active">
-                <a class="nav-link" href="../information/">病患信息 <span class="sr-only">(current)</span></a>
+              <li class="nav-item">
+                <a class="nav-link" href="../information/">病患信息 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../line/"> 挂号预约 </a>
@@ -23,14 +24,17 @@
               <li class="nav-item">
                 <a class="nav-link" href=""> 普通治疗 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../hospitalization/"> 住院治疗 </a>
+              <li class="nav-item active">
+                <a class="nav-link" href="../hospitalization/"> 住院治疗 <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="../finance/"> 财务管理 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href=""> 仓库管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../"> 退出登录 </a>
               </li>
             </ul>
           </div>
@@ -76,16 +80,25 @@
               <button class="btn ">立即查询</button>
             </div>
           </form>
+            <form style="margin-top:100px;">
+              <h4>
+              <span class="design_dot"></span>
+              我是护士
+              </h4>
+              <div>
+                  <button onclick="window.location.href='change/'" type="button" class="btn ">查房信息</button>
+              </div>
+          </form>
           <form style="margin-top:100px;">
               <h4>
               <span class="design_dot"></span>
               我是病人
               </h4>
               <div align="left" style="float:left;margin-left:200px">
-                  <button onclick="window.location.href='change/'" type="button" class="btn ">修改个人信息</button>
+                  <button onclick="window.location.href='change/'" type="button" class="btn ">申请出院</button>
               </div>
               <div align="right" style="margin-right:200px">
-                  <button onclick="window.location.href=''" type="button" class="btn ">查询治疗信息</button>
+                  <button onclick="window.location.href=''" type="button" class="btn ">出院进度查询</button>
               </div>
           </form>>
         </div>

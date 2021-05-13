@@ -17,28 +17,6 @@
   <link href="{% static 'responsive.css' %}" rel="stylesheet" />
 </head>
 <body>
-<header class="header_section">
-      <div class="container-fluid">
-        <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="../">
-            <p>
-            <img src="static/sign.png" alt="noob-logo" width="40" height="40">
-            </p>
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-
-          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
-            <ul class="navbar-nav  ml-auto">
-              <div class="container">
-                <p>Hospital  Information  System</p>
-              </div>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </header>
 
 {% block content %}
 
@@ -51,7 +29,7 @@
               欢迎关注我们的公众号
           </h5>
           <p>
-            <img src="static/qr.png" alt="noob-logo" width="197" height="197">
+            <img src="{% static 'images/qr.png' %}" alt="noob-logo" width="197" height="197">
           </p>
         </div>
         <div class="col-md-3">

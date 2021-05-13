@@ -11,7 +11,7 @@ Department = ((0, '普通内科'), (1, '普通外科'), (2, '骨科'), (3, '儿�
 
 
 class User(models.Model):
-    id = models.AutoField(max_length=11, verbose_name='用户编号', primary_key=True)
+    id = models.CharField(max_length=11, verbose_name='用户编号', primary_key=True)
     username = models.CharField(max_length=20, verbose_name='用户名', unique=True)
     password = models.CharField(max_length=20, verbose_name='密码')
     attr = models.SmallIntegerField(choices=Attribute, default=0, verbose_name='人员属性')

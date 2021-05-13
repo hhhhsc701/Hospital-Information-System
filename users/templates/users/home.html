@@ -1,13 +1,14 @@
-{% extends "base2.html" %}
+{% extends "users/base2.html" %}
+{% load static %}
 {% block content %}
 <div class="hero_area">
     <!-- header section strats -->
     <header class="header_section">
       <div class="container-fluid">
         <nav class="navbar navbar-expand-lg custom_nav-container ">
-          <a class="navbar-brand" href="../">
+          <a class="navbar-brand">
             <p>
-            <img src="static/sign.png" alt="noob-logo" width="40" height="40">
+            <img src="{% static 'images/sign.png' %}" alt="noob-logo" width="40" height="40">
             </p>
           </a>
           <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
@@ -16,10 +17,10 @@
                 <a class="nav-link" href="../home/"> 我的主页 <span class="sr-only">(current)</span></a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../information/">病患信息 </a>
+                <a class="nav-link" href="/patient_information_sys/">病患信息 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="../line/"> 挂号预约 </a>
+                <a class="nav-link" href="/appointment_sys/"> 挂号预约 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href=""> 普通治疗 </a>
@@ -32,6 +33,9 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link" href=""> 仓库管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/logout/"> 退出登录 </a>
               </li>
             </ul>
           </div>
@@ -60,7 +64,7 @@
                 </div>
                 <div class="col-md-6">
                   <div class="img-box">
-                    <img src="images/slider-img.png" alt="">
+                    <img src="{% static 'images/slider-img.png' %}" alt="">
                   </div>
                 </div>
               </div>

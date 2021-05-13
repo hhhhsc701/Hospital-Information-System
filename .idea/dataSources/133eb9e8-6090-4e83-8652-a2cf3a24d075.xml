@@ -1960,7 +1960,7 @@ operation_id_id</ColNames>
     </column>
     <column id="496" parent="306" name="id_number">
       <Position>5</Position>
-      <DataType>varchar(11)|0s</DataType>
+      <DataType>varchar(19)|0s</DataType>
       <NotNull>1</NotNull>
     </column>
     <column id="497" parent="306" name="phone">
