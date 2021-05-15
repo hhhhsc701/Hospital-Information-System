@@ -29,7 +29,7 @@ class Doctor(models.Model):
     name = models.CharField(max_length=20, verbose_name='姓名')
     gender = models.SmallIntegerField(choices=Gender_choices, default=0, verbose_name='性别')
     age = models.SmallIntegerField(verbose_name='年龄')
-    id_number = models.CharField(max_length=11, verbose_name='身份证号')
+    id_number = models.CharField(max_length=20, verbose_name='身份证号')
     phone = models.CharField(max_length=11, verbose_name='联系方式')
     department = models.SmallIntegerField(choices=Department, default=0, verbose_name='科室')
     job_title = models.SmallIntegerField(choices=Job_title, default=0, verbose_name='职称')
@@ -47,7 +47,7 @@ class Nurse(models.Model):
     name = models.CharField(max_length=20, verbose_name='姓名')
     gender = models.SmallIntegerField(choices=Gender_choices, default=0, verbose_name='性别')
     age = models.IntegerField(verbose_name='年龄')
-    id_number = models.CharField(max_length=11, verbose_name='身份证号')
+    id_number = models.CharField(max_length=20, verbose_name='身份证号')
     phone = models.CharField(max_length=11, verbose_name='联系方式')
 
     class Meta:
@@ -235,6 +235,21 @@ class Medicine(models.Model):
     class Meta:
         db_table = 'Medicine'
         verbose_name = '取药单'
+
+    def __str__(self):
+        return self.name
+
+
+class treat(models.Model):
+    id = models.CharField(max_length=11, verbose_name='治疗单编号', primary_key=True)
+    prescription_id = models.ForeignKey(Prescription, on_delete=models.DO_NOTHING, verbose_name='处方单编号')
+    project_id = models.ForeignKey(Project, on_delete=models.DO_NOTHING, verbose_name='项目编号')
+    name = models.CharField(max_length=20, verbose_name='治疗项目名称')
+    time = models.DateTimeField(auto_now_add=True, verbose_name='治疗时间')
+
+    class Meta:
+        db_table = 'treat'
+        verbose_name = '治疗单'
 
     def __str__(self):
         return self.name
