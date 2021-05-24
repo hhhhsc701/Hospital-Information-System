@@ -1,0 +1,98 @@
+{% extends "patient_information_sys/base2.html" %}
+{% load static %}
+{% block content %}
+<style>
+  .btn {
+  background-color: #35806e;
+  color: #ffffff;
+  padding: 10px 45px;
+  border-radius: 5px;
+  margin-top: 10px;
+  text-transform: uppercase;
+}
+</style>
+<div class="hero_area" style="margin-bottom:0px">
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand">
+            <p>
+            <img src="{% static 'images/sign.png' %}" alt="noob-logo" width="40" height="40">
+            </p>
+          </a>
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/users/home/"> 我的主页 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/patient_information_sys/">病患信息 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/appointment_sys/"> 挂号预约 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 普通治疗 </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/hospitalization_sys/"> 住院治疗 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../finance/"> 财务管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 仓库管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/logout/"> 退出登录 </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section class="client_section layout_padding">
+    <div class="container">
+      <div class="heading_container heading_center">
+        <h2>
+          <span class="design_dot"></span>
+            {% if patient.will == 1 %}
+                您的出院申请已通过
+            {% elif patient.will == 0 %}
+                您的出院申请被拒绝
+            {% endif %}
+        </h2>
+      </div>
+    </div>
+    <div class="container px-0">
+        <div class="box">
+              <div class="client_info">
+                <div class="client_name">
+                  <h5>
+                    医嘱
+                  </h5>
+                  <h6>
+                    医生：{{ patient.doctor_id }}
+                  </h6>
+                  <p>
+                      <img src="{% static 'images/doctor.png' %}" width="40%" height="40%">
+                  </p>
+                </div>
+              </div>
+              <p>
+                  {{ patient.order }}
+              </p>
+            </div>
+        <form method="post" action="{% url 'hospitalization_sys:discharge_process' %}">
+            {% csrf_token %}
+            <div  align="left" style="margin-left:150px">
+                <button onclick="window.location.href='/hospitalization_sys/'" type="button" class="btn">返回</button>
+            </div>
+            <div  align="right" style="margin-right:150px;margin-top:-50px">
+                <button onclick="window.location.href='/hospitalization_sys/'" type="submit" class="btn" name="confirm">确认</button>
+            </div>
+        </form>
+    </div>
+  </section>
+</div>
+{% endblock %}
