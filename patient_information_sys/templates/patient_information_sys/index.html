@@ -45,7 +45,8 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form method="post" action="/patient_information_sys/search_result_for_doctor/">
+              {% csrf_token %}
             <h4>
               <span class="design_dot"></span>
               我是医生
@@ -53,31 +54,42 @@
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label>病人ID </label>
-                <input type="text" class="form-control" name="id">
+                <input type="text" class="form-control" name="patient_id">
               </div>
               <div class="form-group col-lg-4">
-                <label>信息类型</label>
-                <select name="" class="form-control wide">
-                  <option>挂号信息 </option>
-                  <option>处方信息 </option>
-                  <option>检验信息 </option>
-                  <option>手术信息 </option>
-                  <option>取药信息 </option>
-                  <option>住院信息 </option>
-                  <option>查房信息 </option>
+                <label name="information_type">信息类型</label>
+                <select name="information_type" class="form-control wide">
+                  <option value="register">挂号信息 </option>
+                  <option value="prescription">处方信息 </option>
+                  <option value="inspection">检验信息 </option>
+                  <option value="operation">手术信息 </option>
+                  <option value="medicine">取药信息 </option>
+                  <option value="hospitalized">住院信息 </option>
+                  <option value="rounds">查房信息 </option>
                 </select>
               </div>
               <div class="form-group col-lg-4">
-                <label>查询时间</label>
-                <select class="form-control wide">
-                  <option>全部信息 </option>
-                  <option>2021 </option>
-                  <option>2020 </option>
+                <label>查询方式</label>
+                <select name="query_method" class="form-control wide">
+                  <option value="all">全部查询 </option>
+                  <option value="time_order">按时间查询 </option>
                 </select>
               </div>
             </div>
+            <div class="form-group col-lg-4" style="margin-left:-16px">
+                <label>查询开始时间：</label>
+                <input type="date" class="form-control" style="width:800px;" name="start_time" id="currentdate1" value="">
+              </div>
+              <div class="form-group col-lg-4" style="margin-left:-16px">
+                <label>查询结束时间：</label>
+                <input type="date" class="form-control" style="width:800px;" name="end_time" id="currentdate2" value="">
+              </div>
             <div class="btn-box">
-              <button class="btn ">立即查询</button>
+              <button class="btn" onclick="window.location.href='/patient_information_sys/search_result_for_doctor/'" type="submit">立即查询</button>
+            </div>
+            <div>
+              <br>
+              <label style="color:#CE0000">{{message2}}</label>
             </div>
           </form>
           <form style="margin-top:100px;">
@@ -89,12 +101,17 @@
                   <button onclick="window.location.href='/patient_information_sys/modify/'" type="button" class="btn ">修改个人信息</button>
               </div>
               <div align="right" style="margin-right:200px">
-                  <button onclick="window.location.href=''" type="button" class="btn ">查询治疗信息</button>
+                  <button onclick="window.location.href='/patient_information_sys/search_result_for_doctor/'" type="button" class="btn ">查询治疗信息</button>
               </div>
-          </form>>
+              <div>
+                <br>
+                <label style="color:#CE0000">{{message1}}</label>
+              </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
 </div>
+<script type="text/javascript" src="{% static 'js/get_currentdate.js' %}"></script>
 {% endblock %}

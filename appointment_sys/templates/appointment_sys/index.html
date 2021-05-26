@@ -45,7 +45,8 @@
     <div class="container">
       <div class="row">
         <div class="col">
-          <form>
+          <form method="post" action="/appointment_sys/">
+              {% csrf_token %}
             <h4>
               <span class="design_dot"></span>
               预约挂号
@@ -53,37 +54,36 @@
             <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label>挂号科室</label>
-                <select name="" class="form-control wide">
-                  <option>儿科 </option>
-                  <option>妇产科 </option>
-                  <option>口腔科 </option>
-                  <option>普外科 </option>
-                  <option>眼科 </option>
-                  <option>检验科 </option>
+                <select name="register_department" class="form-control wide">
+                  <option value="0">普通内科 </option>
+                  <option value="1">普通外科 </option>
+                  <option value="2">骨科 </option>
+                  <option value="3">儿科 </option>
+                  <option value="4">妇产科 </option>
                 </select>
               </div>
               <div class="form-group col-lg-4">
                 <label>挂号时间</label>
-                <select name="" class="form-control wide">
-                  <option>2021.5.5 上午 </option>
-                  <option>2021.5.5 下午 </option>
-                  <option>2021.5.6 上午 </option>
-                  <option>2021.5.6 下午 </option>
-                </select>
+                <input type="date" class="form-control" style="width:350px;" name="appointment_time" id="currentdate1" value="">
               </div>
               <div class="form-group col-lg-4">
                 <label>挂号类型</label>
-                <select class="form-control wide">
-                  <option>专家 </option>
-                  <option>普通 </option>
+                <select name="register_type" class="form-control wide">
+                  <option value="1">专家 </option>
+                  <option value="0">普通 </option>
                 </select>
               </div>
             </div>
             <div class="btn-box">
-              <button class="btn ">查询预约</button>
+              <button class="btn" onclick="window.location.href='/appointment_sys/'" type="submit">立即预约</button>
+            </div>
+            <div>
+              <br>
+              <label style="color:#CE0000">{{message1}}</label>
             </div>
           </form>
-          <form style="margin-top:100px;">
+          <form style="margin-top:100px;" method="post" action="/appointment_sys/">
+              {% csrf_token %}
               <h4>
               <span class="design_dot"></span>
               现场挂号
@@ -91,30 +91,34 @@
               <div class="form-row ">
               <div class="form-group col-lg-4">
                 <label>挂号科室</label>
-                <select name="" class="form-control wide">
-                  <option>儿科 </option>
-                  <option>妇产科 </option>
-                  <option>口腔科 </option>
-                  <option>普外科 </option>
-                  <option>眼科 </option>
-                  <option>检验科 </option>
+                <select name="register_department" class="form-control wide">
+                  <option value="0">普通内科 </option>
+                  <option value="1">普通外科 </option>
+                  <option value="2">骨科 </option>
+                  <option value="3">儿科 </option>
+                  <option value="4">妇产科 </option>
                 </select>
               </div>
               <div class="form-group col-lg-4">
                 <label>挂号类型</label>
-                <select class="form-control wide">
-                  <option>专家 </option>
-                  <option>普通 </option>
+                <select name="register_type" class="form-control wide">
+                  <option value="1">专家 </option>
+                  <option value="0">普通 </option>
                 </select>
               </div>
             </div>
               <div class="btn-box">
-              <button class="btn ">立即挂号</button>
+              <button class="btn" onclick="window.location.href='/appointment_sys/'" type="submit">立即挂号</button>
             </div>
-          </form>>
+            <div>
+              <br>
+              <label style="color:#CE0000">{{message2}}</label>
+            </div>
+          </form>
         </div>
       </div>
     </div>
   </section>
 </div>
+<script type="text/javascript" src="{% static 'js/get_currentdate.js' %}"></script>
 {% endblock %}
