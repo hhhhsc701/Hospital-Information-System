@@ -8,6 +8,7 @@ Will = ((0, '允许出院'), (1, '自主出院'))
 Hospitalization = ((0, '未住院'), (1, '已住院'))
 Attribute = ((0, '病人'), (1, '医生'), (2, '护士'), (3, '财务人员'), (4, '药房人员'))
 Department = ((0, '普通内科'), (1, '普通外科'), (2, '骨科'), (3, '儿科'), (4, '妇产科'))
+Surgery = ((0, '休假'), (1, '星期一'), (2, '星期二'), (3, '星期三'), (4, '星期四'), (5, '星期五'), (6, '星期六'), (7, '星期天'))
 
 
 class User(models.Model):
@@ -29,10 +30,11 @@ class Doctor(models.Model):
     name = models.CharField(max_length=20, verbose_name='姓名')
     gender = models.SmallIntegerField(choices=Gender_choices, default=0, verbose_name='性别')
     age = models.SmallIntegerField(verbose_name='年龄')
-    id_number = models.CharField(max_length=11, verbose_name='身份证号')
+    id_number = models.CharField(max_length=19, verbose_name='身份证号')
     phone = models.CharField(max_length=11, verbose_name='联系方式')
     department = models.SmallIntegerField(choices=Department, default=0, verbose_name='科室')
     job_title = models.SmallIntegerField(choices=Job_title, default=0, verbose_name='职称')
+    surgery = models.SmallIntegerField(choices=Surgery, default=0, verbose_name='坐诊时间')
 
     class Meta:
         db_table = 'doctor'
@@ -231,6 +233,7 @@ class Medicine(models.Model):
     name = models.CharField(max_length=20, verbose_name='药物名称')
     number = models.IntegerField(verbose_name='药物数目')
     text = models.TextField(verbose_name='注意事项')
+    time = models.DateTimeField(auto_now=True, verbose_name='取药时间')
 
     class Meta:
         db_table = 'Medicine'
