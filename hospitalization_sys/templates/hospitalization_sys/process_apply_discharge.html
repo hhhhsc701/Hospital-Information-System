@@ -1,0 +1,81 @@
+{% extends "patient_information_sys/base2.html" %}
+{% load static %}
+{% block content %}
+<style>
+input::-webkit-input-placeholder {
+       /* placeholder颜色  */
+       color: #FFFFFF;
+       /* placeholder字体大小  */
+       font-size: 8px;
+    }
+</style>
+<div class="hero_area" style="margin-bottom:-20px">
+    <header class="header_section">
+      <div class="container-fluid">
+        <nav class="navbar navbar-expand-lg custom_nav-container ">
+            <a class="navbar-brand">
+            <p>
+            <img src="{% static 'images/sign.png' %}" alt="noob-logo" width="40" height="40">
+            </p>
+          </a>
+          <div class="collapse navbar-collapse ml-auto" id="navbarSupportedContent">
+            <ul class="navbar-nav  ml-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/users/home/"> 我的主页 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/patient_information_sys/">病患信息 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/appointment_sys/"> 挂号预约 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 普通治疗 </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/hospitalization_sys/"> 住院治疗 <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../finance/"> 财务管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href=""> 仓库管理 </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/users/logout/"> 退出登录 </a>
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <section class="book_section layout_padding">
+    <div class="container">
+      <div class="row">
+        <div class="col">
+          <form method="post" action="{% url 'hospitalization_sys:process_apply_discharge' %}">
+              {% csrf_token %}
+              <h4>
+                  <span class="design_dot"></span>
+                  病人：{{ patient_id }}申请出院
+              </h4>
+              <HR style="FILTER:alpha(opacity=100,finishopacity=0,style=3)" width="100%" color=#339999 SIZE=3>
+            <div  align="center">
+                <label>出院医嘱</label>
+                <input type="text" class="form-control" style="width: 80%;height:200px;" name="order">
+              </div>
+              <div style="margin-top:20px">
+              <div align="left" style="float:left;margin-left:200px">
+                  <button onclick="window.location.href='../'" type="submit" class="btn " name="allow" value="{{ patient_id }}">允许出院</button>
+              </div>
+              <div align="right" style="margin-right:200px">
+                  <button onclick="window.location.href='/hospitalization_sys/search_discharge/'" type="submit" class="btn " name="refuse" value="{{ patient_id }}">拒绝出院</button>
+              </div>
+              </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+{% endblock %}
